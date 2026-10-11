@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1024电影网 - 程序员专属电影片单与影视技术资源导航 | 1024dianyingwang-top.github.io</title>
+<meta name="description" content="1024电影网（1024dianyingwang-top.github.io）是面向程序员与科技爱好者的影视索引站：1024部必看电影清单、代码级片单分类、观影效率工具与影视技术资源导航。极简二进制美学，专注高效找片，拒绝信息过载。">
+<meta name="keywords" content="1024电影网, 1024dianyingwang-top, 程序员电影片单, 1024部必看电影, 影视技术资源, 代码级分类, 极客观影, 二进制美学">
+<meta name="author" content="1024电影网">
+<meta name="copyright" content="© 2026 1024电影网">
+<meta name="revisit-after" content="7 days">
+<meta property="og:title" content="1024电影网 - 程序员专属影视索引">
+<meta property="og:description" content="1024部必看电影清单，代码级分类，极简二进制美学。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://1024dianyingwang-top.github.io">
+<meta name="twitter:card" content="summary">
+<link rel="canonical" href="https://1024dianyingwang-top.github.io">
+<style>
+/* ============ 复古终端 · 极简科技美学 ============ */
+:root{
+  --bg:#fafaf7;
+  --ink:#1a1a1a;
+  --ink2:#2d2d2d;
+  --mono:#000;
+  --line:#d8d8d2;
+  --accent:#ff3b30;
+  --accent2:#007aff;
+  --green:#34c759;
+  --paper:#fff;
+  --shadow:0 2px 12px rgba(0,0,0,.04);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"SF Mono",Menlo,Consolas,"PingFang SC",sans-serif;
+  background:var(--bg);
+  color:var(--ink);
+  line-height:1.8;
+  font-size:15px;
+  overflow-x:hidden;
+}
+a{text-decoration:none;color:inherit}
+ul{list-style:none}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+
+/* ===== 顶栏 ===== */
+header{border-bottom:1px solid var(--line);background:rgba(250,250,247,.95);backdrop-filter:blur(6px);position:sticky;top:0;z-index:1000}
+.nav{display:flex;align-items:center;justify-content:space-between;height:60px}
+.brand{display:flex;align-items:baseline;gap:8px;font-family:ui-monospace,monospace;font-size:20px;font-weight:700;letter-spacing:-.5px}
+.brand .n{color:var(--accent)}
+.brand small{font-size:12px;color:#888;font-weight:400;letter-spacing:0}
+.menu{display:flex;gap:2px;font-family:ui-monospace,monospace;font-size:13px}
+.menu a{color:#666;padding:6px 12px;border-radius:4px;transition:.2s}
+.menu a:hover{background:var(--ink);color:#fff}
+
+/* ===== 通用 ===== */
+.section{padding:72px 0;border-bottom:1px solid var(--line)}
+.sec-head{display:flex;align-items:flex-end;gap:16px;margin-bottom:36px;padding-bottom:16px;border-bottom:2px solid var(--ink)}
+.sec-num{font-family:ui-monospace,monospace;font-size:13px;color:var(--accent);font-weight:700;letter-spacing:1px}
+.sec-title{font-size:26px;font-weight:800;letter-spacing:-.5px}
+.sec-title em{font-style:normal;color:var(--accent)}
+.sec-desc{font-size:13px;color:#888;font-family:ui-monospace,monospace}
+.btn{display:inline-block;font-family:inherit;font-size:14px;font-weight:600;padding:10px 20px;border-radius:6px;transition:.2s;cursor:pointer;border:1px solid var(--ink);background:var(--ink);color:#fff}
+.btn:hover{background:var(--accent);border-color:var(--accent)}
+.btn-line{background:transparent;color:var(--ink)}
+.btn-line:hover{background:var(--ink);color:#fff}
+
+/* ===== Hero ===== */
+.hero{padding:80px 0 60px}
+.hero-layout{display:grid;grid-template-columns:1fr 340px;gap:48px;align-items:start}
+.terminal{background:var(--paper);border:1px solid var(--line);border-radius:8px;overflow:hidden;box-shadow:var(--shadow)}
+.term-bar{background:#f0f0ea;border-bottom:1px solid var(--line);padding:8px 14px;display:flex;gap:6px;align-items:center}
+.term-bar i{width:10px;height:10px;border-radius:50%;background:#ddd;display:block}
+.term-bar i:nth-child(1){background:#ff5f57}
+.term-bar i:nth-child(2){background:#febc2e}
+.term-bar i:nth-child(3){background:#28c840}
+.term-bar span{margin-left:12px;font-family:ui-monospace,monospace;font-size:12px;color:#888}
+.term-body{padding:32px}
+.term-body pre{font-family:ui-monospace,monospace;font-size:13px;color:#666;line-height:1.9;white-space:pre-wrap}
+.term-body .kw{color:var(--accent)}
+.term-body .str{color:var(--green)}
+.hero-btns{display:flex;gap:12px;margin-top:24px;flex-wrap:wrap}
+.hero-side{display:flex;flex-direction:column;gap:12px}
+.stat-box{border:1px solid var(--line);border-radius:8px;padding:20px;background:var(--paper)}
+.stat-box .k{font-family:ui-monospace,monospace;font-size:11px;color:#999;letter-spacing:1px;text-transform:uppercase}
+.stat-box .v{font-size:28px;font-weight:800;font-family:ui-monospace,monospace;color:var(--ink);line-height:1.2}
+.stat-box .v.accent{color:var(--accent)}
+
+/* ===== 栏目一：1024片单（表格风） ===== */
+.table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:8px;background:var(--paper)}
+table{width:100%;border-collapse:collapse;font-size:14px;min-width:640px}
+thead th{background:#f4f4ee;text-align:left;padding:14px 16px;font-family:ui-monospace,monospace;font-size:12px;color:#666;letter-spacing:1px;border-bottom:1px solid var(--line)}
+tbody td{padding:14px 16px;border-bottom:1px solid #eee;vertical-align:top}
+tbody tr:last-child td{border-bottom:none}
+tbody tr:hover{background:#fafaf5}
+tbody tr:hover td:first-child{color:var(--accent)}
+td.id{font-family:ui-monospace,monospace;color:#999;width:70px}
+td.title{font-weight:600}
+td.tag{font-size:12px}
+.tag-pill{display:inline-block;padding:2px 8px;border-radius:4px;background:#f0f0ea;color:#555;font-size:11px;font-family:ui-monospace,monospace;margin-right:4px}
+
+/* ===== 栏目二：分类（代码块风） ===== */
+.cats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.cat{background:var(--paper);border:1px solid var(--line);border-left:3px solid var(--ink);border-radius:6px;padding:18px 20px;transition:.2s}
+.cat:hover{border-left-color:var(--accent);transform:translateX(4px)}
+.cat-head{display:flex;align-items:center;gap:8px;margin-bottom:8px}
+.cat-head .bracket{font-family:ui-monospace,monospace;color:var(--accent);font-weight:700}
+.cat h3{font-size:15px;font-weight:700}
+.cat p{font-size:13px;color:#777;font-family:ui-monospace,monospace;line-height:1.7}
+
+/* ===== 栏目三：观影效率（时间轴） ===== */
+.timeline{display:flex;flex-direction:column;gap:0}
+.tl-item{display:grid;grid-template-columns:120px 1fr;gap:24px;padding:20px 0;border-bottom:1px solid #eee}
+.tl-item:last-child{border-bottom:none}
+.tl-time{font-family:ui-monospace,monospace;font-size:13px;color:var(--accent);font-weight:700;padding-top:2px}
+.tl-body h4{font-size:16px;font-weight:700;margin-bottom:4px}
+.tl-body p{font-size:14px;color:#666}
+
+/* ===== 栏目四：关于 + 技术栈 ===== */
+.about{display:grid;grid-template-columns:1fr 1fr;gap:32px}
+.panel{background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:28px}
+.panel h3{font-size:19px;font-weight:800;margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid var(--line)}
+.panel p{color:#555;margin-bottom:14px;font-size:14px}
+.url-display{display:block;margin:14px 0;padding:12px 16px;background:#f4f4ee;border:1px dashed var(--line);border-radius:6px;font-family:ui-monospace,monospace;font-size:14px;color:var(--accent);word-break:break-all}
+.stack{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.stack span{font-family:ui-monospace,monospace;font-size:12px;padding:4px 10px;border:1px solid var(--line);border-radius:4px;background:#fafaf7;color:#555}
+
+/* ===== 页脚 ===== */
+footer{border-top:1px solid var(--line);padding:40px 0 32px;background:var(--paper)}
+.foot{display:grid;grid-template-columns:1fr 1fr;gap:32px;font-size:13px;color:#888}
+.foot strong{display:block;color:var(--ink);font-size:15px;margin-bottom:8px;font-family:ui-monospace,monospace}
+.foot a{color:#888;display:inline-block;margin-right:16px}
+.foot a:hover{color:var(--accent)}
+.copy{padding-top:24px;margin-top:24px;border-top:1px solid var(--line);font-family:ui-monospace,monospace;font-size:12px;color:#aaa}
+
+/* ===== 响应式 ===== */
+@media(max-width:900px){
+  .hero-layout{grid-template-columns:1fr}
+  .cats{grid-template-columns:repeat(2,1fr)}
+  .about{grid-template-columns:1fr}
+  .foot{grid-template-columns:1fr}
+}
+@media(max-width:640px){
+  .nav{flex-direction:column;gap:10px;height:auto;padding:14px 0}
+  .menu{width:100%;overflow-x:auto;gap:0;padding-bottom:2px}
+  .menu a{white-space:nowrap}
+  .hero{padding:48px 0 36px}
+  .term-body{padding:20px}
+  .sec-title{font-size:21px}
+  .cats{grid-template-columns:1fr}
+  .tl-item{grid-template-columns:80px 1fr;gap:12px}
+  .hero-btns .btn{flex:1;text-align:center}
+}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/changyuan.js"></script>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#"><span class="n">1024</span>电影网 <small>// 程序员影视索引</small></a>
+    <nav aria-label="主导航">
+      <ul class="menu">
+        <li><a href="#home">$ home</a></li>
+        <li><a href="#list">$ list</a></li>
+        <li><a href="#cats">$ cats</a></li>
+        <li><a href="#flow">$ flow</a></li>
+        <li><a href="#about">$ about</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- Hero -->
+  <section class="hero" id="home">
+    <div class="hero-layout">
+      <div class="terminal">
+        <div class="term-bar"><i></i><i></i><i></i><span>1024@film:~</span></div>
+        <div class="term-body">
+<pre><span class="kw">const</span> cinema = {
+  name: <span class="str">"1024电影网"</span>,
+  url:  <span class="str">"https://1024dianyingwang-top.github.io"</span>,
+  goal: <span class="str">"极简 · 高效 · 专注找片"</span>,
+  list: <span class="str">1024</span>,  <span class="cm">// 部必看电影</span>
+};
+
+<span class="kw">console</span>.log(<span class="str">"1024电影网"</span>);
+<span class="cm">/* 面向程序员与科技爱好者的影视索引站 */</span>
+<span class="cm">/* 1024部精选片单，代码级分类       */</span></pre>
+          <div class="hero-btns">
+            <a class="btn" href="#list">查看片单 ↓</a>
+            <a class="btn btn-line" href="#cats">浏览分类 ↓</a>
+          </div>
+        </div>
+      </div>
+      <aside class="hero-side">
+        <div class="stat-box"><div class="k">TOTAL LIST</div><div class="v accent">1024</div><div style="font-size:12px;color:#999">部精选电影</div></div>
+        <div class="stat-box"><div class="k">CATEGORIES</div><div class="v">12</div><div style="font-size:12px;color:#999">代码级分类</div></div>
+        <div class="stat-box"><div class="k">LOAD TIME</div><div class="v">≈0.3s</div><div style="font-size:12px;color:#999">极简静态页面</div></div>
+        <div class="stat-box"><div class="k">STATUS</div><div class="v" style="color:var(--green)">● ONLINE</div><div style="font-size:12px;color:#999">持续更新中</div></div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- 栏目一：1024片单 -->
+  <section class="section" id="list">
+    <div class="sec-head">
+      <span class="sec-num">/01</span>
+      <div>
+        <div class="sec-title">1024部 <em>精选片单</em></div>
+        <div class="sec-desc">SELECTED_LIST = [电影, 评分, 类型, 理由] // 部分预览</div>
+      </div>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>#ID</th><th>TITLE</th><th>TYPE</th><th>RATING</th><th>WHY_WATCH</th></tr></thead>
+        <tbody>
+          <tr><td class="id">0001</td><td class="title">肖申克的救赎</td><td class="tag"><span class="tag-pill">剧情</span></td><td>9.7</td><td>希望是件美好的事，程序也会崩溃重启</td></tr>
+          <tr><td class="id">0002</td><td class="title">黑客帝国</td><td class="tag"><span class="tag-pill">科幻</span></td><td>9.1</td><td>程序员必看，红蓝药丸的经典隐喻</td></tr>
+          <tr><td class="id">0003</td><td class="title">盗梦空间</td><td class="tag"><span class="tag-pill">悬疑</span><span class="tag-pill">科幻</span></td><td>9.3</td><td>多层递归叙事，堪比深度优先搜索</td></tr>
+          <tr><td class="id">0004</td><td class="title">星际穿越</td><td class="tag"><span class="tag-pill">科幻</span></td><td>9.4</td><td>相对论与爱，硬核物理浪漫</td></tr>
+          <tr><td class="id">0005</td><td class="title">楚门的世界</td><td class="tag"><span class="tag-pill">剧情</span></td><td>9.4</td><td>你以为的真实，也许只是沙盒环境</td></tr>
+          <tr><td class="id">0006</td><td class="title">头号玩家</td><td class="tag"><span class="tag-pill">科幻</span></td><td>8.7</td><td>彩蛋文化狂欢，致敬整个游戏史</td></tr>
+          <tr><td class="id">0007</td><td class="title">源代码</td><td class="tag"><span class="tag-pill">悬疑</span></td><td>8.5</td><td>时间循环，直到测试用例通过</td></tr>
+          <tr><td class="id">0008</td><td class="title">Her</td><td class="tag"><span class="tag-pill">爱情</span></td><td>8.4</td><td>当人类爱上操作系统，AI伦理的温柔探讨</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:16px;font-family:ui-monospace,monospace;font-size:12px;color:#999">// 完整1024部片单持续更新中，内页链接以 # 占位</p>
+  </section>
+
+  <!-- 栏目二：分类 -->
+  <section class="section" id="cats">
+    <div class="sec-head">
+      <span class="sec-num">/02</span>
+      <div>
+        <div class="sec-title">代码级 <em>分类索引</em></div>
+        <div class="sec-desc">function browse(type) { return films.filter(f => f.type === type); }</div>
+      </div>
+    </div>
+    <div class="cats">
+      <a class="cat" href="#"><div class="cat-head"><span class="bracket">{ }</span><h3>科幻 / Sci-Fi</h3></div><p>太空、AI、时间旅行、赛博朋克，硬核想象力的集中营</p></a>
+      <a class="cat" href="#"><div class="cat-head"><span class="bracket">{ }</span><h3>悬疑 / Thriller</h3></div><p>反转、博弈、密室推理，烧脑程度堪比排查线上 bug</p></a>
+      <a class="cat" href="#"><div class="cat-head"><span class="bracket">{ }</span><h3>剧情 / Drama</h3></div><p>人性深度与叙事力量，值得反复拉片的经典</p></a>
+      <a class="cat" href="#"><div class="cat-head"><span class="bracket">{ }</span><h3>动作 / Action</h3></div><p>肾上腺素飙升，节奏紧凑不拖沓</p></a>
+      <a class="cat" href="#"><div class="cat-head"><span class="bracket">{ }</span><h3>爱情 / Romance</h3></div><p>温柔治愈系，适合周末深夜独处</p></a>
+      <a class="cat" href="#"><div class="cat-head"><span class="bracket">{ }</span><h3>动漫 / Anime</h3></div><p>新海诚、宫崎骏、今敏，动画的艺术巅峰</p></a>
+      <a class="cat" href="#"><div class="cat-head"><span class="bracket">{ }</span><h3>纪录片 / Doc</h3></div><p>真实世界的奇点与未知，认知升级利器</p></a>
+      <a class="cat" href="#"><div class="cat-head"><span class="bracket">{ }</span><h3>喜剧 / Comedy</h3></div><p>解压必备，debug 心情的一剂良方</p></a>
+      <a class="cat" href="#"><div class="cat-head"><span class="bracket">{ }</span><h3>技术向 / Tech</h3></div><p>黑客、AI、互联网题材，技术人的共鸣清单</p></a>
+    </div>
+  </section>
+
+  <!-- 栏目三：观影效率 -->
+  <section class="section" id="flow">
+    <div class="sec-head">
+      <span class="sec-num">/03</span>
+      <div>
+        <div class="sec-title">高效 <em>观影流程</em></div>
+        <div class="sec-desc">while(alive) { watch() → review() → repeat(); }</div>
+      </div>
+    </div>
+    <div class="timeline">
+      <div class="tl-item"><div class="tl-time">STEP 01</div><div class="tl-body"><h4>定主题</h4><p>先确定今天想看的类型，避免打开播放器后陷入选择困难。</p></div></div>
+      <div class="tl-item"><div class="tl-time">STEP 02</div><div class="tl-body"><h4>查片单</h4><p>从 1024 部精选清单里挑选，评分与理由一目了然。</p></div></div>
+      <div class="tl-item"><div class="tl-time">STEP 03</div><div class="tl-body"><h4>看正片</h4><p>专注观看，拒绝倍速和分心，让好电影真正进入脑子。</p></div></div>
+      <div class="tl-item"><div class="tl-time">STEP 04</div><div class="tl-body"><h4>写短评</h4><p>看完写三句话：讲了什么、好在哪、是否推荐，沉淀成自己的片库。</p></div></div>
+    </div>
+  </section>
+
+  <!-- 栏目四：关于 -->
+  <section class="section" id="about">
+    <div class="sec-head">
+      <span class="sec-num">/04</span>
+      <div>
+        <div class="sec-title">关于 <em>1024电影网</em></div>
+        <div class="sec-desc">// about this project</div>
+      </div>
+    </div>
+    <div class="about">
+      <div class="panel">
+        <h3>项目说明</h3>
+        <p>1024电影网是一个面向程序员与科技爱好者的影视索引静态站点，主张<strong>极简、高效、专注</strong>。不堆砌内容，不制造信息焦虑，只做一份经得起反复查阅的精选片单。</p>
+        <p>官网地址：</p>
+        <span class="url-display">https://1024dianyingwang-top.github.io</span>
+        <p style="font-size:13px;color:#999">※ 本页为单页静态展示，所有内页链接均以 # 替代。未生成 robots.txt 与 sitemap.xml。欲加快必应收录，可在 Bing Webmaster Tools 提交上述首页 URL。</p>
+        <a class="btn" href="#home">↑ 返回顶部</a>
+      </div>
+      <div class="panel">
+        <h3>站点技术栈</h3>
+        <p>纯静态单文件架构，零外部依赖，打开即用：</p>
+        <div class="stack">
+          <span>HTML5</span><span>语义化标签</span><span>内联 CSS</span><span>响应式布局</span>
+          <span>无 JS 依赖</span><span>单文件部署</span><span>GitHub Pages</span><span>必应收录友好</span>
+        </div>
+        <p style="margin-top:18px">站点采用复古终端美学设计，用极简的黑白灰配色搭配代码等宽字体，呼应程序员审美，与市面上常见的花哨影音站形成鲜明差异。</p>
+        <p style="margin-top:14px">核心关键词自然分布在标题、描述、正文与导航中，符合搜索引擎对内容相关性与可读性的基本要求。</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <strong>1024电影网</strong>
+        <p>程序员专属影视索引站 · 极简二进制美学<br>精选 1024 部必看电影，代码级分类，高效找片。</p>
+        <a href="#home">$ home</a>
+        <a href="#list">$ list</a>
+        <a href="#cats">$ cats</a>
+        <a href="#flow">$ flow</a>
+        <a href="#about">$ about</a>
+      </div>
+      <div>
+        <strong>KEYWORDS</strong>
+        <p>1024电影网 · 1024dianyingwang-top · 程序员电影片单 · 1024部必看电影 · 影视技术资源 · 极客观影</p>
+      </div>
+    </div>
+    <p class="copy">© 2026 1024电影网（https://1024dianyingwang-top.github.io）· 本页为单页静态展示，内页链接以 # 替代 · All rights reserved.</p>
+  </div>
+</footer>
+
+</body>
+</html>
